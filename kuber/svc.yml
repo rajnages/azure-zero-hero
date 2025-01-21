@@ -1,0 +1,16 @@
+# This is a valid Kubernetes Service manifest that:
+# - Creates a Service named 'httpd-frontend'
+# - Selects pods with label app=httpd-frontend
+# - Exposes port 80 and maps to container port 80
+# - Uses NodePort type to expose the service externally
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpd-frontend
+spec:
+  selector:
+    app: httpd-frontend
+  ports:
+  - port: 80
+    targetPort: 80
+  type: NodePort
